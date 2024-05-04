@@ -1,17 +1,73 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 3
+      Agregar cerveza
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 3</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
 
-  <app-explore-container name="Tab 3 page"></app-explore-container>
+  <ion-list>
+    <form [formGroup]="addBeerForm">
+
+      <ion-item>
+        <ion-input formControlName="name" label="Nombre de la cerveza" labelPlacement="stacked" [clearInput]="true"
+          placeholder="Introduce el nombre de la cerveza" label-placement="floating" fill="solid" errorText="Requerido">
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input formControlName="ibus" label="Ibus" labelPlacement="stacked" [clearOnEdit]="true" placeholder="00"
+          label-placement="floating" fill="solid" type="number">
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input formControlName="degrees" label="Grados" labelPlacement="stacked" [clearOnEdit]="true"
+          placeholder="00º" label-placement="floating" fill="solid" type="number">
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input formControlName="style" label="Capacidad" labelPlacement="stacked" [clearOnEdit]="true"
+          placeholder="00L" label-placement="floating" fill="solid" type="number">
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input formControlName="capacity" label="Estilo" labelPlacement="stacked" [clearOnEdit]="true"
+          placeholder="Introduzca el estilo" label-placement="floating" fill="solid">
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input formControlName="origin" label="Origen" labelPlacement="stacked" [clearOnEdit]="true"
+          placeholder="Introduzca el origen" label-placement="floating" fill="solid">
+        </ion-input>
+      </ion-item>
+      <br>
+      <ion-item>
+        <ion-input formControlName="description" label="Descripción" labelPlacement="stacked" [clearOnEdit]="true"
+          placeholder="introduzca una breve descripción" label-placement="floating" fill="solid">
+        </ion-input>
+      </ion-item>
+
+    </form>
+  </ion-list>
+
+  <ion-text>
+    <ion-icon name="camera-outline">Pulsa el botón para añadir una foto o una imagen de archivo</ion-icon>Pulsa el botón
+    para añadir una foto o una imagen de archivo
+  </ion-text>
+
+  <ion-button expand="block" type="submit" (click)="addBeer()" [disabled]="addBeerForm.invalid"><ion-icon name="add-circle-outline"></ion-icon>Agregar</ion-button>
+
+
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="addPhotoToGallery()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
